@@ -4,6 +4,38 @@ package eu.veldsoft.dice.overflow;
  * 
  */
 class Cell {
+	//TODO Use it for the cell size.
+	/**
+	 * 
+	 * @author Todor Balabanov
+	 */
+	enum Size {
+		EMPTY(0), ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6);
+
+		/**
+		 * Size value of the cell.
+		 */
+		private int value = -1;
+		
+		/**
+		 * Constructor.
+		 * 
+		 * @param value Size value of the cell.
+		 */
+		private Size(int value) {
+			this.value = value;
+		}
+		
+		/**
+		 * Cell size getter.
+		 * 
+		 * @return Size of the cell.
+		 */
+		public int get() {
+			return value;
+		}
+	};
+	
 	/**
 	 * 
 	 */
