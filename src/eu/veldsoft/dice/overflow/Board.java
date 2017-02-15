@@ -1,49 +1,66 @@
 package eu.veldsoft.dice.overflow;
 
+import eu.veldsoft.dice.overflow.Cell.Type;
+
 /**
+ * Board object.
  * 
  * @author Diana Dyulgerova
  */
 class Board {
 	/**
-	 * 
+	 * Height size in rows.
 	 */
 	static final int ROWS = 5;
 
 	/**
-	 * 
+	 * Width size in columns.
 	 */
 	static final int COLS = 5;
 
 	/**
+	 * Initial board state static factory function.
 	 * 
+	 * @return Initial board state.
+	 */
+	private static Cell[][] initial() {
+		Cell result[][] = {
+				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
+						new Cell(Type.EMPTY, 0) },
+				{ new Cell(Type.EMPTY, 0), new Cell(Type.RED, 5), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
+						new Cell(Type.EMPTY, 0) },
+				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
+						new Cell(Type.EMPTY, 0) },
+				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.BLUE, 5),
+						new Cell(Type.EMPTY, 0) },
+				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
+						new Cell(Type.EMPTY, 0) }, };
+
+		return result;
+	}
+
+	/**
+	 * Turn counter.
 	 */
 	private int turn = 0;
 
 	/**
-	 * 
+	 * Game over flag.
 	 */
 	private boolean gameOver = false;
 
 	/**
-	 * 
+	 * Cells on the board.
 	 */
-	private Cell cells[][] = {
-			{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-					new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) },
-			{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.RED, 5), new Cell(Cell.Type.EMPTY, 0),
-					new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) },
-			{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-					new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) },
-			{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-					new Cell(Cell.Type.BLUE, 5), new Cell(Cell.Type.EMPTY, 0) },
-			{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-					new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) }, };
+	private Cell cells[][] = initial();
 
 	/**
+	 * Rise size of the particular cell.
 	 * 
 	 * @param x
+	 *            X coordinate.
 	 * @param y
+	 *            Y coordinate.
 	 */
 	private void rise(int x, int y, Cell.Type type) {
 		/*
@@ -58,9 +75,13 @@ class Board {
 	}
 
 	/**
+	 * Flood color if there is overflow of a cell.
 	 * 
 	 * @param x
+	 *            X coordinate.
+	 * 
 	 * @param y
+	 *            Y coordinate.
 	 */
 	private void flood(int x, int y) {
 		/*
@@ -73,7 +94,7 @@ class Board {
 		/*
 		 * Nothing to flood.
 		 */
-		if (0 <= cells[x][y].getScore() && cells[x][y].getScore() <= 6) {
+		if (0 <= cells[x][y].getSize() && cells[x][y].getSize() <= 6) {
 			return;
 		}
 
@@ -101,69 +122,66 @@ class Board {
 	}
 
 	/**
+	 * Turn getter.
 	 * 
-	 * @return
+	 * @return Turn number.
 	 */
 	public int getTurn() {
 		return turn;
 	}
 
 	/**
-	 * 
+	 * Game over flag setter.
 	 */
 	public void setGameOver() {
 		gameOver = true;
 	}
 
 	/**
+	 * Game over flag getter.
 	 * 
-	 * @return
+	 * @return Game over state.
 	 */
 	public boolean isGameOver() {
 		return gameOver;
 	}
 
 	/**
+	 * Cells getter.
 	 * 
-	 * @return
+	 * @return Array with board cells.
 	 */
 	public Cell[][] getCells() {
+		// TODO Do a deep copy.
 		return cells;
 	}
 
 	/**
-	 * 
+	 * Move to next turn.
 	 */
 	public void next() {
 		turn++;
 	}
 
 	/**
-	 * 
+	 * Initialize the game in the starting conditions.
 	 */
 	public void reset() {
 		turn = 0;
 		gameOver = false;
 
-		cells = new Cell[][] {
-				{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-						new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) },
-				{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.RED, 5), new Cell(Cell.Type.EMPTY, 0),
-						new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) },
-				{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-						new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) },
-				{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-						new Cell(Cell.Type.BLUE, 5), new Cell(Cell.Type.EMPTY, 0) },
-				{ new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0),
-						new Cell(Cell.Type.EMPTY, 0), new Cell(Cell.Type.EMPTY, 0) }, };
+		cells = initial();
 	}
 
 	/**
+	 * Handle player's click.
 	 * 
 	 * @param x
+	 *            X coordinate.
 	 * @param y
+	 *            Y coordinate.
 	 * 
-	 * @return
+	 * @return True if the click was valid move, false otherwise.
 	 */
 	public boolean click(int x, int y) {
 		/*
@@ -187,8 +205,9 @@ class Board {
 	}
 
 	/**
+	 * Check for winner on the board.
 	 * 
-	 * @return
+	 * @return True if there is a winner, false otherwise.
 	 */
 	public boolean hasWinner() {
 		Cell.Type found = null;
@@ -211,8 +230,9 @@ class Board {
 	}
 
 	/**
+	 * Provide winner type.
 	 * 
-	 * @return
+	 * @return Winner type.
 	 */
 	public Cell.Type winner() {
 		for (int i = 0; i < cells.length; i++) {

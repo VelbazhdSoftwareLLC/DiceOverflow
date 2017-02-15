@@ -3,12 +3,15 @@ package eu.veldsoft.dice.overflow;
 import eu.veldsoft.dice.overflow.Cell.Type;
 
 /**
+ * Computer opponent based on random search.
+ *
+ * https://en.wikipedia.org/wiki/Random_search
  * 
- * @author
+ * @author Todor Balabanov
  */
 class RandomArtificialIntelligence implements ArtificialIntelligence {
 	/**
-	 * 
+	 * {@inheritDoc}
 	 */
 	@Override
 	public int[] move(Cell[][] cells, Type player) throws ImpossibleMoveException {

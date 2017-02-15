@@ -10,12 +10,26 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.Toast;
 
+/**
+ * Splash screen.
+ * 
+ * @author Todor Balabanov
+ */
 public class SplashActivity extends Activity {
 
+	/**
+	 * Timeout to show splash screen.
+	 */
 	private long timeout = 0L;
 
+	/**
+	 * Screen redirect after the splash screen.
+	 */
 	private String redirect = "";
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,6 +79,9 @@ public class SplashActivity extends Activity {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void onResume() {
 		super.onResume();

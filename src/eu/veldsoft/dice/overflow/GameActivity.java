@@ -13,6 +13,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+/**
+ * Game screen.
+ * 
+ * @author Todor Balabanov
+ */
 public class GameActivity extends Activity {
 	/**
 	 * 
@@ -20,31 +25,31 @@ public class GameActivity extends Activity {
 	private final Handler handler = new Handler();
 
 	/**
-	 * 
+	 * Sounds pool. 
 	 */
 	private SoundPool sounds = null;
 
 	/**
-	 * 
+	 * Click sound identifier.
 	 */
 	private int clickId = -1;
 
 	/**
-	 * 
+	 * Finish sound identifier.
 	 */
 	private int finishId = -1;
 
 	/**
-	 * 
+	 * Computer opponent thread.
 	 */
 	private Runnable ai = new Runnable() {
 		/**
-		 * 
+		 * Computer opponent object.
 		 */
 		private ArtificialIntelligence bot = new RandomArtificialIntelligence();
 
 		/**
-		 * 
+		 * {@inheritDoc}
 		 */
 		@Override
 		public void run() {
@@ -89,25 +94,37 @@ public class GameActivity extends Activity {
 	private Board board = new Board();
 
 	/**
-	 * 
+	 * Keep references to all image view components.
 	 */
 	private ImageView images[][] = { { null, null, null, null, null }, { null, null, null, null, null },
 			{ null, null, null, null, null }, { null, null, null, null, null }, { null, null, null, null, null }, };
 
 	/**
-	 * 
+	 * Cells click listener.
 	 */
 	private View.OnClickListener click = new View.OnClickListener() {
+		/**
+		 * {@inheritDoc}
+		 */
 		@Override
 		public void onClick(View view) {
+			/*
+			 * If the game is over there is nothing to be done.
+			 */
 			if (board.isGameOver() == true) {
 				return;
 			}
 
+			/*
+			 * If the human player has turn also nothing to be done.
+			 */
 			if (board.getTurn() % 2 != 0) {
 				return;
 			}
 
+			/*
+			 * Play a computer move.
+			 */
 			boolean result = false;
 			loops: for (int i = 0; i < images.length; i++) {
 				for (int j = 0; j < images[i].length; j++) {
@@ -118,6 +135,9 @@ public class GameActivity extends Activity {
 				}
 			}
 
+			/*
+			 * Check for winner.
+			 */
 			if (result == true) {
 				if (board.hasWinner() == true) {
 					board.setGameOver();
@@ -128,18 +148,27 @@ public class GameActivity extends Activity {
 				}
 			}
 
+			/*
+			 * Update user interface.
+			 */
 			updateViews();
 		}
 	};
 
 	/**
-	 * 
+	 * Update all visual controls.
 	 */
 	private void updateViews() {
+		/*
+		 * Play sound for game over.
+		 */
 		if (board.isGameOver() == true) {
 			sounds.play(finishId, 0.99f, 0.99f, 0, 0, 1);
 		}
 
+		/*
+		 * Redraw all cells.
+		 */
 		Cell cells[][] = board.getCells();
 		for (int i = 0; i < cells.length && i < images.length; i++) {
 			for (int j = 0; j < cells[i].length && j < images[i].length; j++) {
@@ -148,7 +177,7 @@ public class GameActivity extends Activity {
 					images[i][j].setImageResource(R.drawable.empty);
 					break;
 				case RED:
-					switch (cells[i][j].getScore()) {
+					switch (cells[i][j].getSize()) {
 					case 1:
 						images[i][j].setImageResource(R.drawable.red01);
 						break;
@@ -173,7 +202,7 @@ public class GameActivity extends Activity {
 					}
 					break;
 				case BLUE:
-					switch (cells[i][j].getScore()) {
+					switch (cells[i][j].getSize()) {
 					case 1:
 						images[i][j].setImageResource(R.drawable.blue01);
 						break;
@@ -201,20 +230,32 @@ public class GameActivity extends Activity {
 			}
 		}
 
+		/*
+		 * Report game over.
+		 */
 		if (board.isGameOver() == true) {
 			Toast.makeText(this, getResources().getString(R.string.game_over_message), Toast.LENGTH_LONG).show();
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_game);
 
+		/*
+		 * Load sounds.
+		 */
 		sounds = new SoundPool(2, AudioManager.STREAM_MUSIC, 0);
 		clickId = sounds.load(this, R.raw.schademans_pipe9, 1);
 		finishId = sounds.load(this, R.raw.game_sound_correct, 1);
 
+		/*
+		 * Refer all image controls.
+		 */
 		images[0][0] = (ImageView) findViewById(R.id.cell00);
 		images[0][1] = (ImageView) findViewById(R.id.cell01);
 		images[0][2] = (ImageView) findViewById(R.id.cell02);
@@ -241,17 +282,23 @@ public class GameActivity extends Activity {
 		images[4][3] = (ImageView) findViewById(R.id.cell43);
 		images[4][4] = (ImageView) findViewById(R.id.cell44);
 
+		/*
+		 * Set click listener to all images.
+		 */
 		for (int i = 0; i < images.length; i++) {
 			for (int j = 0; j < images[i].length; j++) {
 				images[i][j].setOnClickListener(click);
 			}
 		}
 
+		/*
+		 * Update screen.
+		 */
 		updateViews();
 	}
 
 	/**
-	 * 
+	 * {@inheritDoc}
 	 */
 	@Override
 	protected void onDestroy() {
@@ -262,7 +309,7 @@ public class GameActivity extends Activity {
 	}
 
 	/**
-	 * 
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -272,7 +319,7 @@ public class GameActivity extends Activity {
 	}
 
 	/**
-	 * 
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {

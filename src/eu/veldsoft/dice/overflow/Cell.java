@@ -1,11 +1,12 @@
 package eu.veldsoft.dice.overflow;
 
 /**
- * 
+ * Describe single cell on the board.
  */
 class Cell {
 	//TODO Use it for the cell size.
 	/**
+	 * Size of the die on a particular cell.
 	 * 
 	 * @author Todor Balabanov
 	 */
@@ -37,7 +38,7 @@ class Cell {
 	};
 	
 	/**
-	 * 
+	 * Type of the cell.
 	 */
 	enum Type {
 		/**
@@ -46,9 +47,11 @@ class Cell {
 		EMPTY(-1), RED(0), BLUE(1);
 
 		/**
+		 * Get object by id.
 		 * 
-		 * @param id
-		 * @return
+		 * @param id Identifier to search for.
+		 * 
+		 * @return The object or empty if the indentifier was not found.
 		 */
 		static Type id(int id) {
 			for (Type type : Type.values()) {
@@ -61,21 +64,23 @@ class Cell {
 		}
 
 		/**
-		 * 
+		 * Object indentifier.
 		 */
 		private int id = -1;
 
 		/**
+		 * Constructor.
 		 * 
-		 * @param id
+		 * @param id Object identifier.
 		 */
 		private Type(int id) {
 			this.id = id;
 		}
 
 		/**
+		 * Object identifier getter.
 		 * 
-		 * @return
+		 * @return Identifier.
 		 */
 		public int getId() {
 			return id;
@@ -83,61 +88,69 @@ class Cell {
 	}
 
 	/**
-	 * 
+	 * Cell type.
 	 */
 	private Type type;
 
 	/**
-	 * 
+	 * Cell size.
 	 */
-	private int score;
+	private int size;
 
 	/**
+	 * Constructor.
 	 * 
+	 * @param type Cell type.
+	 * @param size Cell size.
 	 */
-	public Cell(Type type, int score) {
+	public Cell(Type type, int size) {
 		this.type = type;
-		this.score = score;
+		this.size = size;
 	}
 
 	/**
-	 * 
+	 * Cell type getter.
 	 */
 	public Type getType() {
 		return type;
 	}
 
 	/**
+	 * Cell type setter.
 	 * 
+	 * @param type Cell type.
 	 */
 	public void setType(Type type) {
 		this.type = type;
 	}
 
 	/**
-	 * 
+	 * Cell size getter.
 	 */
-	public int getScore() {
-		return score;
+	public int getSize() {
+		return size;
 	}
 
 	/**
+	 * Cell size setter.
 	 * 
+	 * @param size Cell size.
 	 */
-	public void setScore(int score) {
-		this.score = score;
+	public void setSize(int size) {
+		this.size = size;
 	}
 
 	/**
-	 * 
+	 * Rise size of the die in the cell.
 	 */
 	public void rise() {
-		score++;
+		size++;
 	}
 
 	/**
+	 * Drop down the size of the die in the cell.
 	 * 
-	 * @param amount
+	 * @param amount Amount to drop the size with.
 	 */
 	public void drop(int amount) {
 		/*
@@ -147,13 +160,13 @@ class Cell {
 			amount = 0;
 		}
 
-		score -= amount;
+		size -= amount;
 
 		/*
 		 * Switch to empty cell.
 		 */
-		if (score < 1) {
-			score = 0;
+		if (size < 1) {
+			size = 0;
 			type = Type.EMPTY;
 		}
 	}
