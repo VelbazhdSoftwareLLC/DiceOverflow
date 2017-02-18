@@ -11,7 +11,7 @@ class Cell {
 	 * @author Todor Balabanov
 	 */
 	enum Size {
-		EMPTY(0), ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6);
+		ZERO(0), ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6);
 
 		/**
 		 * Size value of the cell.
@@ -51,7 +51,7 @@ class Cell {
 		 * 
 		 * @param id Identifier to search for.
 		 * 
-		 * @return The object or empty if the indentifier was not found.
+		 * @return The object or empty if the identifier was not found.
 		 */
 		static Type id(int id) {
 			for (Type type : Type.values()) {
