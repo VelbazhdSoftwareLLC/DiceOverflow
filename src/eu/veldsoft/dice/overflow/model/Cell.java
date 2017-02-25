@@ -39,16 +39,21 @@ public class Cell implements Serializable {
 		public int getId() {
 			return id;
 		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String toString() {
+			return "" + (id == 0 ? " " : id);
+		}
 	};
 
 	/**
 	 * Type of the cell.
 	 */
 	public enum Type {
-		/**
-		 * 
-		 */
-		EMPTY(-1), RED(0), BLUE(1);
+		EMPTY(-1, " "), RED(0, "R"), BLUE(1, "B");
 
 		/**
 		 * Get object by id.
@@ -69,18 +74,26 @@ public class Cell implements Serializable {
 		}
 
 		/**
-		 * Object indentifier.
+		 * Object identifier.
 		 */
 		private int id = -1;
+
+		/**
+		 * Symbols combination to be used in to string printing.
+		 */
+		private String symbol = "";
 
 		/**
 		 * Constructor.
 		 * 
 		 * @param id
 		 *            Object identifier.
+		 * @param symbol
+		 *            Symbols used in to string printing.
 		 */
-		private Type(int id) {
+		private Type(int id, String symbol) {
 			this.id = id;
+			this.symbol = symbol;
 		}
 
 		/**
@@ -90,6 +103,14 @@ public class Cell implements Serializable {
 		 */
 		public int getId() {
 			return id;
+		}
+
+		/**
+		 * {@inheritDoc}
+		 */
+		@Override
+		public String toString() {
+			return "" + symbol;
 		}
 	}
 
@@ -264,5 +285,13 @@ public class Cell implements Serializable {
 	 */
 	public int overflowing() {
 		return overflowing;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return "(" + type + "" + size + ")";
 	}
 }

@@ -1,6 +1,13 @@
 package eu.veldsoft.dice.overflow.model;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.io.StreamCorruptedException;
+import java.util.Arrays;
 
 import eu.veldsoft.dice.overflow.model.Cell.Size;
 import eu.veldsoft.dice.overflow.model.Cell.Type;
@@ -249,5 +256,70 @@ public class Board implements Serializable {
 		}
 
 		return Cell.Type.EMPTY;
+	}
+
+	/**
+	 * Convert board to bytes array.
+	 * 
+	 * @return The game board as bites.
+	 */
+	public byte[] toBytes() {
+		byte bytes[] = {};
+
+		try {
+			ByteArrayOutputStream out = null;
+			(new ObjectOutputStream(out = new ByteArrayOutputStream())).writeObject(this);
+			out.flush();
+			bytes = out.toByteArray();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return bytes;
+	}
+
+	/**
+	 * Convert bytes to a board object.
+	 * 
+	 * @param bytes
+	 *            Array of bytes representing a board.
+	 */
+	public void fromBytes(byte[] bytes) {
+		Board board = this;
+
+		try {
+			ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(bytes));
+			board = (Board) in.readObject();
+			in.close();
+		} catch (StreamCorruptedException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		this.turn = board.turn;
+		this.gameOver = board.gameOver;
+		this.cells = board.cells;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		String result = "";
+
+		result += "Turn:\t" + turn;
+		result += "\n";
+		result += "Over:\t" + gameOver;
+		result += "\n";
+
+		result += Arrays.deepToString(cells).replaceAll("], \\[", "\n").replaceAll(",", "").replaceAll("\\[", "")
+				.replaceAll("]", "");
+
+		return result;
 	}
 }
