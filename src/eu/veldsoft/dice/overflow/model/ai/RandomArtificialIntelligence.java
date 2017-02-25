@@ -1,6 +1,8 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model.ai;
 
-import eu.veldsoft.dice.overflow.Cell.Type;
+import eu.veldsoft.dice.overflow.model.Cell;
+import eu.veldsoft.dice.overflow.model.Cell.Type;
+import eu.veldsoft.dice.overflow.model.Util;
 
 /**
  * Computer opponent based on random search.
@@ -9,7 +11,7 @@ import eu.veldsoft.dice.overflow.Cell.Type;
  * 
  * @author Todor Balabanov
  */
-class RandomArtificialIntelligence implements ArtificialIntelligence {
+public class RandomArtificialIntelligence implements ArtificialIntelligence {
 	/**
 	 * {@inheritDoc}
 	 */

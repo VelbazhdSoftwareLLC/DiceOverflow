@@ -1,16 +1,16 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model;
 
 /**
  * Describe single cell on the board.
  */
-class Cell {
+public class Cell {
 	// TODO Use it for the cell size.
 	/**
 	 * Size of the die on a particular cell.
 	 * 
 	 * @author Todor Balabanov
 	 */
-	enum Size {
+	public enum Size {
 		ZERO(0), ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6);
 
 		/**
@@ -41,7 +41,7 @@ class Cell {
 	/**
 	 * Type of the cell.
 	 */
-	enum Type {
+	public enum Type {
 		/**
 		 * 
 		 */
@@ -55,7 +55,7 @@ class Cell {
 		 * 
 		 * @return The object or empty if the identifier was not found.
 		 */
-		static Type id(int id) {
+		public static Type id(int id) {
 			for (Type type : Type.values()) {
 				if (type.getId() == id) {
 					return type;

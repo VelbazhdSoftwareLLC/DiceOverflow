@@ -1,11 +1,13 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model.ai;
+
+import eu.veldsoft.dice.overflow.model.Cell;
 
 /**
  * Interface which each computer opponent class needs to implement.
  * 
  * @author Todor Balabanov
  */
-interface ArtificialIntelligence {
+public interface ArtificialIntelligence {
 	/**
 	 * At each game turn each player should do a single move. The move is
 	 * coordinates of a cell on the board.

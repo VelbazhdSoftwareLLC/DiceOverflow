@@ -1,25 +1,23 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model;
 
-import java.util.Arrays;
-
-import eu.veldsoft.dice.overflow.Cell.Size;
-import eu.veldsoft.dice.overflow.Cell.Type;
+import eu.veldsoft.dice.overflow.model.Cell.Size;
+import eu.veldsoft.dice.overflow.model.Cell.Type;
 
 /**
  * Board object.
  * 
  * @author Diana Dyulgerova
  */
-class Board {
+public class Board {
 	/**
 	 * Height size in rows.
 	 */
-	static final int ROWS = 5;
+	public static final int ROWS = 5;
 
 	/**
 	 * Width size in columns.
 	 */
-	static final int COLS = 5;
+	public static final int COLS = 5;
 
 	/**
 	 * Initial board state static factory function.

@@ -12,6 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+import eu.veldsoft.dice.overflow.model.Board;
+import eu.veldsoft.dice.overflow.model.Cell;
+import eu.veldsoft.dice.overflow.model.ai.ArtificialIntelligence;
+import eu.veldsoft.dice.overflow.model.ai.RandomArtificialIntelligence;
 
 /**
  * Game screen.

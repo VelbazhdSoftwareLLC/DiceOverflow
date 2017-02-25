@@ -1,4 +1,4 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model;
 
 import java.util.Random;
 
@@ -7,9 +7,9 @@ import java.util.Random;
  * 
  * @author Todor Balabanov
  */
-class Util {
+public class Util {
 	/**
 	 * Pseudo-random number generator instance.
 	 */
-	static final Random PRNG = new Random();
+	public static final Random PRNG = new Random();
 }

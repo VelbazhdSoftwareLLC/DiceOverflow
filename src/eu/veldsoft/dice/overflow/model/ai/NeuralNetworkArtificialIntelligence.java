@@ -1,4 +1,4 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model.ai;
 
 import org.encog.engine.network.activation.ActivationSigmoid;
 import org.encog.ml.data.MLData;
@@ -6,14 +6,16 @@ import org.encog.ml.data.basic.BasicMLData;
 import org.encog.neural.networks.BasicNetwork;
 import org.encog.neural.networks.layers.BasicLayer;
 
-import eu.veldsoft.dice.overflow.Cell.Type;
+import eu.veldsoft.dice.overflow.model.Board;
+import eu.veldsoft.dice.overflow.model.Cell;
+import eu.veldsoft.dice.overflow.model.Cell.Type;
 
 /**
  * Artificial intelligence based on artificial neural network.
  * 
  * @author Todor Balabanov
  */
-class NeuralNetworkArtificialIntelligence implements ArtificialIntelligence {
+public class NeuralNetworkArtificialIntelligence implements ArtificialIntelligence {
 	// TODO Load net object from a file or database.
 	/**
 	 * Artificial neural network object.

@@ -1,4 +1,4 @@
-package eu.veldsoft.dice.overflow;
+package eu.veldsoft.dice.overflow.model.ai;
 
 /**
  * Impossible move exception.
