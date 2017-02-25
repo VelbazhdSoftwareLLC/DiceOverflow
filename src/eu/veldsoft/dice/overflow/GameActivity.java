@@ -25,7 +25,7 @@ public class GameActivity extends Activity {
 	private final Handler handler = new Handler();
 
 	/**
-	 * Sounds pool. 
+	 * Sounds pool.
 	 */
 	private SoundPool sounds = null;
 
@@ -178,22 +178,22 @@ public class GameActivity extends Activity {
 					break;
 				case RED:
 					switch (cells[i][j].getSize()) {
-					case 1:
+					case ONE:
 						images[i][j].setImageResource(R.drawable.red01);
 						break;
-					case 2:
+					case TWO:
 						images[i][j].setImageResource(R.drawable.red02);
 						break;
-					case 3:
+					case THREE:
 						images[i][j].setImageResource(R.drawable.red03);
 						break;
-					case 4:
+					case FOUR:
 						images[i][j].setImageResource(R.drawable.red04);
 						break;
-					case 5:
+					case FIVE:
 						images[i][j].setImageResource(R.drawable.red05);
 						break;
-					case 6:
+					case SIX:
 						images[i][j].setImageResource(R.drawable.red06);
 						break;
 					default:
@@ -203,22 +203,22 @@ public class GameActivity extends Activity {
 					break;
 				case BLUE:
 					switch (cells[i][j].getSize()) {
-					case 1:
+					case ONE:
 						images[i][j].setImageResource(R.drawable.blue01);
 						break;
-					case 2:
+					case TWO:
 						images[i][j].setImageResource(R.drawable.blue02);
 						break;
-					case 3:
+					case THREE:
 						images[i][j].setImageResource(R.drawable.blue03);
 						break;
-					case 4:
+					case FOUR:
 						images[i][j].setImageResource(R.drawable.blue04);
 						break;
-					case 5:
+					case FIVE:
 						images[i][j].setImageResource(R.drawable.blue05);
 						break;
-					case 6:
+					case SIX:
 						images[i][j].setImageResource(R.drawable.blue06);
 						break;
 					default:

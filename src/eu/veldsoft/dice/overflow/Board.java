@@ -1,5 +1,8 @@
 package eu.veldsoft.dice.overflow;
 
+import java.util.Arrays;
+
+import eu.veldsoft.dice.overflow.Cell.Size;
 import eu.veldsoft.dice.overflow.Cell.Type;
 
 /**
@@ -25,16 +28,16 @@ class Board {
 	 */
 	private static Cell[][] initial() {
 		Cell result[][] = {
-				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
-						new Cell(Type.EMPTY, 0) },
-				{ new Cell(Type.EMPTY, 0), new Cell(Type.RED, 5), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
-						new Cell(Type.EMPTY, 0) },
-				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
-						new Cell(Type.EMPTY, 0) },
-				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.BLUE, 5),
-						new Cell(Type.EMPTY, 0) },
-				{ new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0), new Cell(Type.EMPTY, 0),
-						new Cell(Type.EMPTY, 0) }, };
+				{ new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO),
+						new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO) },
+				{ new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.RED, Size.FIVE), new Cell(Type.EMPTY, Size.ZERO),
+						new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO) },
+				{ new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO),
+						new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO) },
+				{ new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO),
+						new Cell(Type.BLUE, Size.FIVE), new Cell(Type.EMPTY, Size.ZERO) },
+				{ new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO),
+						new Cell(Type.EMPTY, Size.ZERO), new Cell(Type.EMPTY, Size.ZERO) }, };
 
 		return result;
 	}
@@ -94,7 +97,8 @@ class Board {
 		/*
 		 * Nothing to flood.
 		 */
-		if (0 <= cells[x][y].getSize() && cells[x][y].getSize() <= 6) {
+		if (cells[x][y].overflowing() <= 0) {
+			// TODO Find better way to search for flooding conditions.
 			return;
 		}
 
