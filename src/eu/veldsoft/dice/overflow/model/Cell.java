@@ -1,9 +1,12 @@
 package eu.veldsoft.dice.overflow.model;
 
+import java.io.Serializable;
+
 /**
  * Describe single cell on the board.
  */
-public class Cell {
+@SuppressWarnings("serial")
+public class Cell implements Serializable {
 	// TODO Use it for the cell size.
 	/**
 	 * Size of the die on a particular cell.

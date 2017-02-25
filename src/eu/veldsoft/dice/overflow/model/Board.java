@@ -1,5 +1,7 @@
 package eu.veldsoft.dice.overflow.model;
 
+import java.io.Serializable;
+
 import eu.veldsoft.dice.overflow.model.Cell.Size;
 import eu.veldsoft.dice.overflow.model.Cell.Type;
 
@@ -8,7 +10,8 @@ import eu.veldsoft.dice.overflow.model.Cell.Type;
  * 
  * @author Diana Dyulgerova
  */
-public class Board {
+@SuppressWarnings("serial")
+public class Board implements Serializable {
 	/**
 	 * Height size in rows.
 	 */
