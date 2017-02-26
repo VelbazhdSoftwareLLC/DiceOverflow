@@ -291,6 +291,46 @@ public class Cell implements Serializable {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + overflowing;
+		result = prime * result + ((size == null) ? 0 : size.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!(object instanceof Cell)) {
+			return false;
+		}
+		Cell other = (Cell) object;
+		if (overflowing != other.overflowing) {
+			return false;
+		}
+		if (size != other.size) {
+			return false;
+		}
+		if (type != other.type) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String toString() {
 		return "(" + type + "" + size + ")";
 	}

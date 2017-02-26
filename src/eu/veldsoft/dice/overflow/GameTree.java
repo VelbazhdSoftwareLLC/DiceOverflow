@@ -32,6 +32,8 @@ public class GameTree {
 
 		DefaultMutableTreeNode tree = new DefaultMutableTreeNode(board.toBytes());
 
+		System.out.println((new Board()).equals(new Board()));
+
 		System.out.println("Finish ...");
 	}
 }

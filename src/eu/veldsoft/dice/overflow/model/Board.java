@@ -309,6 +309,46 @@ public class Board implements Serializable {
 	 * {@inheritDoc}
 	 */
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Arrays.deepHashCode(cells);
+		result = prime * result + (gameOver ? 1231 : 1237);
+		result = prime * result + turn;
+		return result;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object object) {
+		if (this == object) {
+			return true;
+		}
+		if (object == null) {
+			return false;
+		}
+		if (!(object instanceof Board)) {
+			return false;
+		}
+		Board other = (Board) object;
+		if (!Arrays.deepEquals(cells, other.cells)) {
+			return false;
+		}
+		if (gameOver != other.gameOver) {
+			return false;
+		}
+		if (turn != other.turn) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	public String toString() {
 		String result = "";
 
