@@ -8,6 +8,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.io.StreamCorruptedException;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import eu.veldsoft.dice.overflow.model.Cell.Size;
 import eu.veldsoft.dice.overflow.model.Cell.Type;
@@ -206,7 +208,7 @@ public class Board implements Serializable {
 		/*
 		 * Player turn should match.
 		 */
-		if (turn % 2 != cells[x][y].getType().getId()) {
+		if (Cell.Type.play(turn) != cells[x][y].getType()) {
 			return false;
 		}
 
@@ -256,6 +258,36 @@ public class Board implements Serializable {
 		}
 
 		return Cell.Type.EMPTY;
+	}
+
+	/**
+	 * Evaluate scores of different players.
+	 * 
+	 * @return Counters with the success of the different players on the board.
+	 */
+	public Map<Type, Integer> score() {
+		Map<Type, Integer> result = new HashMap<Type, Integer>();
+
+		/*
+		 * Initialize counters.
+		 */
+		for (Type type : Type.values()) {
+			result.put(type, 0);
+		}
+
+		/*
+		 * Score players.
+		 */
+		for (int i = 0; i < cells.length; i++) {
+			for (int j = 0; i < cells[j].length; j++) {
+				Type type = cells[i][j].getType();
+				int score = cells[i][j].getSize().value();
+
+				result.put(type, score + result.get(type));
+			}
+		}
+
+		return result;
 	}
 
 	/**

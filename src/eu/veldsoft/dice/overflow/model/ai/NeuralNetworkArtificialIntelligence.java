@@ -83,7 +83,7 @@ public class NeuralNetworkArtificialIntelligence implements ArtificialIntelligen
 					 * There are 6 values for each die and 0 if the cell is
 					 * empty.
 					 */
-					double value = cells[i][j].getSize().getId() / 6D;
+					double value = cells[i][j].getSize().value() / Cell.Size.values().length - 1;
 
 					if (cells[i][j].getType() == Cell.Type.RED) {
 						input[k] = middle - (middle - lowHigh[0]) * value;

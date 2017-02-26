@@ -2,6 +2,8 @@ package eu.veldsoft.dice.overflow.model;
 
 import java.io.Serializable;
 
+import eu.veldsoft.dice.overflow.model.Cell.Type;
+
 /**
  * Describe single cell on the board.
  */
@@ -19,7 +21,7 @@ public class Cell implements Serializable {
 		/**
 		 * Size value of the cell.
 		 */
-		private int id = -1;
+		private int value = -1;
 
 		/**
 		 * Constructor.
@@ -28,7 +30,7 @@ public class Cell implements Serializable {
 		 *            Size value of the cell.
 		 */
 		private Size(int id) {
-			this.id = id;
+			this.value = id;
 		}
 
 		/**
@@ -36,8 +38,8 @@ public class Cell implements Serializable {
 		 * 
 		 * @return Size of the cell.
 		 */
-		public int getId() {
-			return id;
+		public int value() {
+			return value;
 		}
 
 		/**
@@ -45,7 +47,7 @@ public class Cell implements Serializable {
 		 */
 		@Override
 		public String toString() {
-			return "" + (id == 0 ? " " : id);
+			return "" + (value == 0 ? " " : value);
 		}
 	};
 
@@ -53,7 +55,7 @@ public class Cell implements Serializable {
 	 * Type of the cell.
 	 */
 	public enum Type {
-		EMPTY(-1, " "), RED(0, "R"), BLUE(1, "B");
+		EMPTY(0, " "), RED(1, "R"), BLUE(2, "B");
 
 		/**
 		 * Get object by id.
@@ -65,7 +67,7 @@ public class Cell implements Serializable {
 		 */
 		public static Type id(int id) {
 			for (Type type : Type.values()) {
-				if (type.getId() == id) {
+				if (type.id() == id) {
 					return type;
 				}
 			}
@@ -101,8 +103,34 @@ public class Cell implements Serializable {
 		 * 
 		 * @return Identifier.
 		 */
-		public int getId() {
+		public int id() {
 			return id;
+		}
+
+		/**
+		 * Determine who is playing.
+		 * 
+		 * @param turn
+		 *            Number of the turn.
+		 * 
+		 * @return Player type.
+		 */
+		public static Type play(int turn) {
+			if (turn < 0) {
+				return EMPTY;
+			}
+
+			/*
+			 * Minus one is needed because empty type can not play.
+			 */
+			switch (turn % (values().length - 1)) {
+			case 0:
+				return RED;
+			case 1:
+				return BLUE;
+			}
+
+			return EMPTY;
 		}
 
 		/**
@@ -270,7 +298,7 @@ public class Cell implements Serializable {
 		/*
 		 * Switch to empty cell.
 		 */
-		if (size.getId() <= 0 && overflowing <= 0) {
+		if (size.value() <= 0 && overflowing <= 0) {
 			size = Size.ZERO;
 			type = Type.EMPTY;
 			overflowing = 0;

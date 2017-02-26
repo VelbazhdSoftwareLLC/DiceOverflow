@@ -29,6 +29,18 @@ public class GameTree {
 		board.click(3, 3);
 		board.next();
 		System.out.println(board);
+		board.click(1, 1);
+		board.next();
+		System.out.println(board);
+		board.click(3, 3);
+		board.next();
+		System.out.println(board);
+		board.click(1, 1);
+		board.next();
+		System.out.println(board);
+		board.click(3, 3);
+		board.next();
+		System.out.println(board);
 
 		DefaultMutableTreeNode tree = new DefaultMutableTreeNode(board.toBytes());
 
