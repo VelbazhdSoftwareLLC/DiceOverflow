@@ -74,7 +74,7 @@ public class GameActivity extends Activity {
 			/*
 			 * Generate move.
 			 */
-			int move[] = bot.move(board.getCells(), Cell.Type.id(board.getTurn() % 2));
+			int move[] = bot.move(board.getCells(), Cell.Type.instanceOf(board.getTurn() % 2));
 
 			/*
 			 * Play move.

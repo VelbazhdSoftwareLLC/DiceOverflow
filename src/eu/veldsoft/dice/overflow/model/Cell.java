@@ -2,8 +2,6 @@ package eu.veldsoft.dice.overflow.model;
 
 import java.io.Serializable;
 
-import eu.veldsoft.dice.overflow.model.Cell.Type;
-
 /**
  * Describe single cell on the board.
  */
@@ -65,7 +63,7 @@ public class Cell implements Serializable {
 		 * 
 		 * @return The object or empty if the identifier was not found.
 		 */
-		public static Type id(int id) {
+		public static Type instanceOf(int id) {
 			for (Type type : Type.values()) {
 				if (type.id() == id) {
 					return type;
