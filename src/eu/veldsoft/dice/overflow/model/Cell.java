@@ -169,6 +169,17 @@ public class Cell implements Serializable {
 	}
 
 	/**
+	 * Copy constructor.
+	 * 
+	 * @param original
+	 *            Original object to copy from.
+	 */
+	public Cell(Cell original) {
+		this(original.type, original.size);
+		overflowing = original.overflowing;
+	}
+
+	/**
 	 * Cell type getter.
 	 */
 	public Type getType() {

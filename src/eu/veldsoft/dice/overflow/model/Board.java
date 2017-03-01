@@ -136,6 +136,36 @@ public class Board implements Serializable {
 	}
 
 	/**
+	 * Copy constructor.
+	 * 
+	 * @param original
+	 *            The original object.
+	 */
+	public Board(Board original) {
+		this();
+
+		turn = original.turn;
+		gameOver = original.gameOver;
+
+		/*
+		 * Deep copy.
+		 */
+		this.cells = initial();
+		for (int i = 0; i < cells.length && i < original.cells.length; i++) {
+			for (int j = 0; j < cells[i].length && j < original.cells[i].length; j++) {
+				cells[i][j] = new Cell(original.cells[i][j]);
+			}
+		}
+	}
+
+	/**
+	 * Constructor withoout parameters.
+	 */
+	public Board() {
+		super();
+	}
+
+	/**
 	 * Turn getter.
 	 * 
 	 * @return Turn number.
@@ -279,7 +309,7 @@ public class Board implements Serializable {
 		 * Score players.
 		 */
 		for (int i = 0; i < cells.length; i++) {
-			for (int j = 0; i < cells[j].length; j++) {
+			for (int j = 0; j < cells[i].length; j++) {
 				Type type = cells[i][j].getType();
 				int score = cells[i][j].getSize().value();
 
