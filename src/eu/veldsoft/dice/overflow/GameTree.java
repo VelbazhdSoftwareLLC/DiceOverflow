@@ -1,12 +1,15 @@
 package eu.veldsoft.dice.overflow;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Random;
+import java.util.Set;
 
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import eu.veldsoft.dice.overflow.model.Board;
+import eu.veldsoft.dice.overflow.model.Cell;
 import eu.veldsoft.dice.overflow.model.Cell.Type;
 import eu.veldsoft.dice.overflow.model.Move;
 
@@ -32,15 +35,22 @@ public class GameTree {
 	private static DefaultMutableTreeNode tree = new DefaultMutableTreeNode(board);
 
 	/**
+	 * Keep a set of all generated moves.
+	 */
+	private static Set<Board> states = new HashSet<Board>();
+
+	/**
 	 * Monte Carlo evaluation of specific game board state.
 	 * 
 	 * @param state
 	 *            Node in the game tree.
+	 * @param type
+	 *            Who is playing on this turn.
 	 * @param time
 	 *            Milliseconds to be used for Monte Carlo experiments.
 	 * @return Evaluation for each possible move.
 	 */
-	private static Map<Move, Integer> monteCarlo(Board state, long time) {
+	private static Map<Move, Integer> monteCarlo(Board state, Cell.Type type, long time) {
 		Map<Move, Integer> counters = new HashMap<Move, Integer>();
 
 		Board board = new Board(state);
@@ -126,11 +136,20 @@ public class GameTree {
 				 */
 				if (board.click(i, j) == true) {
 					board.next();
+
+					/*
+					 * Do not proceed an existing states in the game tree.
+					 */
+					if (states.contains(board) == true) {
+						board = new Board((Board) root.getUserObject());
+						continue;
+					}
+
+					/*
+					 * Add tree node for this particular move.
+					 */
 					DefaultMutableTreeNode node;
 					root.add(node = new DefaultMutableTreeNode(board));
-
-					// TODO Check for node existence in order to escape graph
-					// loops.
 
 					/*
 					 * Call the building of a subtree. The root of the subtree
@@ -138,6 +157,9 @@ public class GameTree {
 					 */
 					build(node);
 
+					/*
+					 * Prepare for new move check.
+					 */
 					board = new Board((Board) root.getUserObject());
 				}
 			}
@@ -165,7 +187,7 @@ public class GameTree {
 		System.err.println(board);
 
 		// build(tree);
-		Map<Move, Integer> evaluation = monteCarlo(board, 5000);
+		Map<Move, Integer> evaluation = monteCarlo(board, Type.RED, 5000);
 		System.err.println(evaluation);
 
 		System.out.println("Finish ...");
