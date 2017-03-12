@@ -1,5 +1,6 @@
 package eu.veldsoft.dice.overflow.model.ai;
 
+import eu.veldsoft.dice.overflow.model.Board;
 import eu.veldsoft.dice.overflow.model.Cell;
 
 /**
@@ -12,7 +13,7 @@ public interface ArtificialIntelligence {
 	 * At each game turn each player should do a single move. The move is
 	 * coordinates of a cell on the board.
 	 * 
-	 * @param cells
+	 * @param state
 	 *            Cells on the board.
 	 * 
 	 * @param player
@@ -23,5 +24,5 @@ public interface ArtificialIntelligence {
 	 * @throws ImpossibleMoveException
 	 *             If the move is not possible at all rise an exception.
 	 */
-	public int[] move(Cell cells[][], Cell.Type player) throws ImpossibleMoveException;
+	public int[] move(Board state, Cell.Type player) throws ImpossibleMoveException;
 }

@@ -15,7 +15,7 @@ import eu.veldsoft.dice.overflow.model.Cell.Type;
  * 
  * @author Todor Balabanov
  */
-public class NeuralNetworkArtificialIntelligence implements ArtificialIntelligence {
+public class NeuralNetworkArtificialIntelligence extends AbstractArtificialIntelligence {
 	// TODO Load net object from a file or database.
 	/**
 	 * Artificial neural network object.
@@ -38,27 +38,10 @@ public class NeuralNetworkArtificialIntelligence implements ArtificialIntelligen
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int[] move(Cell[][] cells, Type player) throws ImpossibleMoveException {
-		int x = -1;
-		int y = -1;
+	public int[] move(Board state, Type player) throws ImpossibleMoveException {
+		super.move(state, player);
 
-		/*
-		 * Check for available moves.
-		 */
-		boolean found = false;
-		loops: for (int i = 0; i < cells.length; i++) {
-			for (int j = 0; j < cells[i].length; j++) {
-				if (cells[i][j].getType() == player) {
-					x = i;
-					y = j;
-					found = true;
-					break loops;
-				}
-			}
-		}
-		if (found == false) {
-			throw new ImpossibleMoveException();
-		}
+		Cell cells[][] = state.getCells();
 
 		/*
 		 * Use ANN for move generation. The information from the board cells
@@ -97,6 +80,8 @@ public class NeuralNetworkArtificialIntelligence implements ArtificialIntelligen
 
 		MLData output = network.compute(new BasicMLData(input));
 
+		int x = -1;
+		int y = -1;
 		double max = 0;
 		for (int i = 0, k = 0; i < cells.length; i++) {
 			for (int j = 0; j < cells[i].length; j++, k++) {

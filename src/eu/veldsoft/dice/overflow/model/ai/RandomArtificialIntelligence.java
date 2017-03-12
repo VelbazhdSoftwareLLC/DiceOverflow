@@ -1,5 +1,6 @@
 package eu.veldsoft.dice.overflow.model.ai;
 
+import eu.veldsoft.dice.overflow.model.Board;
 import eu.veldsoft.dice.overflow.model.Cell;
 import eu.veldsoft.dice.overflow.model.Cell.Type;
 import eu.veldsoft.dice.overflow.model.Util;
@@ -11,27 +12,15 @@ import eu.veldsoft.dice.overflow.model.Util;
  * 
  * @author Todor Balabanov
  */
-public class RandomArtificialIntelligence implements ArtificialIntelligence {
+public class RandomArtificialIntelligence extends AbstractArtificialIntelligence {
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public int[] move(Cell[][] cells, Type player) throws ImpossibleMoveException {
-		/*
-		 * Check for available moves.
-		 */
-		boolean found = false;
-		loops: for (int i = 0; i < cells.length; i++) {
-			for (int j = 0; j < cells[i].length; j++) {
-				if (cells[i][j].getType() == player) {
-					found = true;
-					break loops;
-				}
-			}
-		}
-		if (found == false) {
-			throw new ImpossibleMoveException();
-		}
+	public int[] move(Board state, Type player) throws ImpossibleMoveException {
+		super.move(state, player);
+
+		Cell cells[][] = state.getCells();
 
 		/*
 		 * Select random valid cell.

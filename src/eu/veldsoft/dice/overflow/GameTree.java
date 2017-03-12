@@ -3,7 +3,6 @@ package eu.veldsoft.dice.overflow;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -12,6 +11,7 @@ import eu.veldsoft.dice.overflow.model.Board;
 import eu.veldsoft.dice.overflow.model.Cell;
 import eu.veldsoft.dice.overflow.model.Cell.Type;
 import eu.veldsoft.dice.overflow.model.Move;
+import eu.veldsoft.dice.overflow.model.Util;
 
 /**
  * Game tree building program.
@@ -19,11 +19,6 @@ import eu.veldsoft.dice.overflow.model.Move;
  * @author Todor Balabanov
  */
 public class GameTree {
-	/**
-	 * Pseudo-random number generator.
-	 */
-	private static final Random PRNG = new Random();
-
 	/**
 	 * Initial board object.
 	 */
@@ -37,7 +32,7 @@ public class GameTree {
 	/**
 	 * Keep a set of all generated moves.
 	 */
-	private static Set<Board> states = new HashSet<Board>();
+	private static Set<Board> visited = new HashSet<Board>();
 
 	/**
 	 * Monte Carlo evaluation of specific game board state.
@@ -79,7 +74,7 @@ public class GameTree {
 							/*
 							 * Select random cell to play.
 							 */
-							if (true == board.click(PRNG.nextInt(Board.COLS), PRNG.nextInt(Board.ROWS))) {
+							if (true == board.click(Util.PRNG.nextInt(Board.COLS), Util.PRNG.nextInt(Board.ROWS))) {
 								/*
 								 * Move to next player if the turn was valid.
 								 */
@@ -94,8 +89,20 @@ public class GameTree {
 							counters.put(move, 0);
 						}
 
+						/*
+						 * Calculate total score.
+						 */
 						Map<Type, Integer> score = board.score();
-						counters.put(move, counters.get(move) + (score.get(Type.RED) - score.get(Type.BLUE)));
+						int others = 0;
+						for (Type key : score.keySet()) {
+							others += score.get(key);
+						}
+
+						/*
+						 * Others have current player score that is why it
+						 * should be multiplied by two.
+						 */
+						counters.put(move, counters.get(move) + 2 * score.get(type) - others);
 
 						/*
 						 * Reinitialize the board for the next experiment.
@@ -140,7 +147,7 @@ public class GameTree {
 					/*
 					 * Do not proceed an existing states in the game tree.
 					 */
-					if (states.contains(board) == true) {
+					if (visited.contains(board) == true) {
 						board = new Board((Board) root.getUserObject());
 						continue;
 					}
@@ -150,6 +157,7 @@ public class GameTree {
 					 */
 					DefaultMutableTreeNode node;
 					root.add(node = new DefaultMutableTreeNode(board));
+					visited.add(board);
 
 					/*
 					 * Call the building of a subtree. The root of the subtree
@@ -176,19 +184,10 @@ public class GameTree {
 	public static void main(String[] args) throws Exception {
 		System.out.println("Start ...");
 
-		board.click(1, 1);
-		board.next();
-		board.click(3, 3);
-		board.next();
-		board.click(1, 1);
-		board.next();
-		board.click(3, 3);
-		board.next();
-		System.err.println(board);
+		build(tree);
 
-		// build(tree);
-		Map<Move, Integer> evaluation = monteCarlo(board, Type.RED, 5000);
-		System.err.println(evaluation);
+		// Map<Move, Integer> evaluation = monteCarlo(board, Type.RED, 5000);
+		// System.err.println(evaluation);
 
 		System.out.println("Finish ...");
 	}

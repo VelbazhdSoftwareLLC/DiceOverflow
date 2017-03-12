@@ -15,7 +15,7 @@ import android.widget.Toast;
 import eu.veldsoft.dice.overflow.model.Board;
 import eu.veldsoft.dice.overflow.model.Cell;
 import eu.veldsoft.dice.overflow.model.ai.ArtificialIntelligence;
-import eu.veldsoft.dice.overflow.model.ai.RandomArtificialIntelligence;
+import eu.veldsoft.dice.overflow.model.ai.MonteCarloArtificialIntelligence;
 
 /**
  * Game screen.
@@ -50,7 +50,8 @@ public class GameActivity extends Activity {
 		/**
 		 * Computer opponent object.
 		 */
-		private ArtificialIntelligence bot = new RandomArtificialIntelligence();
+		private ArtificialIntelligence bot = new MonteCarloArtificialIntelligence(1000);
+		// TODO Use shared preferences to select calculations time.
 
 		/**
 		 * {@inheritDoc}
@@ -74,7 +75,7 @@ public class GameActivity extends Activity {
 			/*
 			 * Generate move.
 			 */
-			int move[] = bot.move(board.getCells(), Cell.Type.play(board.getTurn()));
+			int move[] = bot.move(board, Cell.Type.play(board.getTurn()));
 
 			/*
 			 * Play move.
