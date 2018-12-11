@@ -11,70 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7d55433-d057-44aa-9226-78574ad2357b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_math3_3_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_encog_encog_core_3_3_0_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/banner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/present.odp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/thesis.odt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ic_launcher-web.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/android-support-v4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/encog-core-3.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/proguard-project.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/blue01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/blue02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/blue03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/blue04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/blue05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/blue06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/dice.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/empty.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/red01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/red02.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/red03.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/red04.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/red05.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-mdpi/red06.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/drawable-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/activity_about.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/activity_game.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/activity_help.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/layout/activity_splash.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu/game_option_menu.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/raw/game_sound_correct.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/raw/schademans_pipe9.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/raw/synthpad_2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-v11/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values-v14/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/colors.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/strings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/AboutActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/GameActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/GameTree.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/HelpActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/SplashActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/Board.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/Cell.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/Move.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/Util.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/ai/AbstractArtificialIntelligence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/ai/ArtificialIntelligence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/ai/ImpossibleMoveException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/ai/MonteCarloArtificialIntelligence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/ai/NeuralNetworkArtificialIntelligence.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eu/veldsoft/dice/overflow/model/ai/RandomArtificialIntelligence.java" beforeDir="false" />
-    </list>
+    <list default="true" id="b7d55433-d057-44aa-9226-78574ad2357b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
