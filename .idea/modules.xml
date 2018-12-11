@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DiceOverflow.iml" filepath="$PROJECT_DIR$/DiceOverflow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DiceOverflow/DiceOverflow-DiceOverflow.iml" filepath="$PROJECT_DIR$/DiceOverflow/DiceOverflow-DiceOverflow.iml" />
+    </modules>
+  </component>
+</project>

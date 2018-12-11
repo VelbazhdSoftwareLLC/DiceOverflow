@@ -1,11 +1,12 @@
 package eu.veldsoft.dice.overflow;
 
+import com.scalified.tree.TreeNode;
+import com.scalified.tree.multinode.ArrayMultiTreeNode;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import javax.swing.tree.DefaultMutableTreeNode;
 
 import eu.veldsoft.dice.overflow.model.Board;
 import eu.veldsoft.dice.overflow.model.Cell;
@@ -27,7 +28,7 @@ public class GameTree {
 	/**
 	 * Tree structure which is holding the serialized version of the board.
 	 */
-	private static DefaultMutableTreeNode tree = new DefaultMutableTreeNode(board);
+	private static TreeNode<Board> tree = new ArrayMultiTreeNode<>(board);
 
 	/**
 	 * Keep a set of all generated moves.
@@ -122,8 +123,8 @@ public class GameTree {
 	 * @param root
 	 *            Root of the tree.
 	 */
-	private static void build(DefaultMutableTreeNode root) {
-		Board board = new Board((Board) root.getUserObject());
+	private static void build(TreeNode<Board>  root) {
+		Board board = new Board(root.data());
 
 		/*
 		 * Leaf of the tree game. It is the end of the recursive calls.
@@ -148,15 +149,15 @@ public class GameTree {
 					 * Do not proceed an existing states in the game tree.
 					 */
 					if (visited.contains(board) == true) {
-						board = new Board((Board) root.getUserObject());
+						board = new Board(root.data());
 						continue;
 					}
 
 					/*
 					 * Add tree node for this particular move.
 					 */
-					DefaultMutableTreeNode node;
-					root.add(node = new DefaultMutableTreeNode(board));
+					TreeNode<Board> node;
+					root.add(node = new ArrayMultiTreeNode<>(board));
 					visited.add(board);
 
 					/*
@@ -168,7 +169,7 @@ public class GameTree {
 					/*
 					 * Prepare for new move check.
 					 */
-					board = new Board((Board) root.getUserObject());
+					board = new Board(root.data());
 				}
 			}
 		}
