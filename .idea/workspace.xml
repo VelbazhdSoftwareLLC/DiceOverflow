@@ -12,13 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7d55433-d057-44aa-9226-78574ad2357b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_scalified_tree_0_2_5_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_commons_commons_math3_3_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_encog_encog_core_3_3_0_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiceOverflow/DiceOverflow-DiceOverflow.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DiceOverflow/DiceOverflow-DiceOverflow.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiceOverflow/src/main/java/eu/veldsoft/dice/overflow/model/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/DiceOverflow/src/main/java/eu/veldsoft/dice/overflow/model/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiceOverflow/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/DiceOverflow/build.gradle" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,7 +35,26 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DiceOverflow/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -2307,8 +2321,8 @@
       <list>
         <option value="$PROJECT_DIR$/DiceOverflow/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/DiceOverflow/src/main/java/eu/veldsoft/dice/overflow/GameTree.java" />
-        <option value="$PROJECT_DIR$/DiceOverflow/build.gradle" />
         <option value="$PROJECT_DIR$/DiceOverflow/src/main/java/eu/veldsoft/dice/overflow/model/Cell.java" />
+        <option value="$PROJECT_DIR$/DiceOverflow/build.gradle" />
       </list>
     </option>
   </component>
@@ -2334,6 +2348,10 @@
             <path>
               <item name="DiceOverflow" type="1abcf292:AndroidViewProjectNode" />
               <item name="DiceOverflow-DiceOverflow" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="DiceOverflow" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
           <select />
@@ -2483,6 +2501,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="72" y="23" width="1208" height="1001" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info id="Build Variants" order="2" side_tool="true" />
@@ -2538,13 +2557,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/import-summary.txt" />
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="5" lean-forward="true" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DiceOverflow/src/main/AndroidManifest.xml">
       <provider editor-type-id="android-manifest">
         <state />
@@ -2565,13 +2577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DiceOverflow/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DiceOverflow/src/main/java/eu/veldsoft/dice/overflow/model/ai/NeuralNetworkArtificialIntelligence.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
@@ -2587,6 +2592,20 @@
             <element signature="e#3389#3390#0" expanded="true" />
             <element signature="e#3409#3410#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DiceOverflow/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
         </state>
       </provider>
     </entry>
