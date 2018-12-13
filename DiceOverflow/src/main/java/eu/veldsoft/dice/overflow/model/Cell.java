@@ -221,7 +221,7 @@ public class Cell implements Serializable {
 	}
 
 	/**
-	 * F Decrease the size.
+	 * Decrease the size.
 	 */
 	public void riseDown() {
 		overflowing--;
