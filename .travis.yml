@@ -8,7 +8,10 @@ android:
     - tools
     - platform-tools
     - build-tools-28.0.3
-    - android-15
+    - android-23
+
+before_install:
+  - yes | sdkmanager "build-tools;28.0.3"
 
 script:
   - ./gradlew build
