@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'jacoco-android'
+apply plugin: "com.vanniktech.android.javadoc"
 
 android {
     compileSdkVersion 23
@@ -34,4 +35,5 @@ dependencies {
     api 'com.android.support:support-v4:23.4.0'
     api 'org.encog:encog-core:3.3.0'
     api 'com.scalified:tree:0.2.5'
+    api "gradle.plugin.com.vanniktech:gradle-android-javadoc-plugin:0.3.0"
 }
