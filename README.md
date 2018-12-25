@@ -13,6 +13,7 @@
 [![Coverage Status](https://codecov.io/gh/VelbazhdSoftwareLLC/DiceOverflow/branch/master/graph/badge.svg)](https://codecov.io/gh/VelbazhdSoftwareLLC/DiceOverflow) 
 [![Coverity status](https://scan.coverity.com/projects/17525/badge.svg)](https://scan.coverity.com/projects/diceoverflow) 
 
+[![Open Source Helpers](https://www.codetriage.com/velbazhdsoftwarellc/diceoverflow/badges/users.svg)](https://www.codetriage.com/velbazhdsoftwarellc/diceoverflow) 
 [![Documentation Status](https://readthedocs.org/projects/diceoverflow/badge/?version=latest)](https://diceoverflow.readthedocs.io/en/latest/?badge=latest) 
 
 Dice Overflow is a simple board logical game developed as master thesis in New Bulgarian University.
