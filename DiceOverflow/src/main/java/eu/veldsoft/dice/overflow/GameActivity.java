@@ -31,7 +31,7 @@ public class GameActivity extends Activity {
 	/**
 	 * Sounds pool.
 	 */
-	private SoundPool sounds = null;
+	private SoundPool sounds =  null;
 
 	/**
 	 * Click sound identifier.
