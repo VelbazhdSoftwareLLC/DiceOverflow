@@ -19,6 +19,8 @@
 [![Open Source Helpers](https://www.codetriage.com/velbazhdsoftwarellc/diceoverflow/badges/users.svg)](https://www.codetriage.com/velbazhdsoftwarellc/diceoverflow) 
 [![Documentation Status](https://readthedocs.org/projects/diceoverflow/badge/?version=latest)](https://diceoverflow.readthedocs.io/en/latest/?badge=latest) 
 
+[![](https://codescene.io/projects/6510/status.svg) Get more details at **codescene.io**.](https://codescene.io/projects/6510/jobs/latest-successful/results)
+
 Dice Overflow is a simple board logical game developed as master thesis in New Bulgarian University.
 
 [<img src="https://f-droid.org/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/eu.veldsoft.dice.overflow/)
