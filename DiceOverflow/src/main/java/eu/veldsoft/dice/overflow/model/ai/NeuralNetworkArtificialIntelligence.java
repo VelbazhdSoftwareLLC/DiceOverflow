@@ -27,6 +27,7 @@ public class NeuralNetworkArtificialIntelligence extends AbstractArtificialIntel
 	 */
 	public NeuralNetworkArtificialIntelligence() {
 		super();
+		//TODO Use hyperbolic tangent instead sigmoid.
 		network.addLayer(new BasicLayer(new ActivationSigmoid(), true, 25));
 		network.addLayer(new BasicLayer(new ActivationSigmoid(), true, 26));
 		network.addLayer(new BasicLayer(new ActivationSigmoid(), false, 25));

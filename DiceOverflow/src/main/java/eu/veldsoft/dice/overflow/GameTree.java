@@ -26,7 +26,7 @@ public class GameTree {
 	private static Board board = new Board();
 
 	/**
-	 * Tree structure which is holding the serialized version of the board.
+	 * Tree structure which is holding the serialised version of the board.
 	 */
 	private static TreeNode<Board> tree = new ArrayMultiTreeNode<>(board);
 
@@ -84,7 +84,6 @@ public class GameTree {
 						}
 						board.setGameOver();
 
-						// TODO Use counters.
 						Move move = new Move(i, j, true);
 						if (counters.containsKey(move) == false) {
 							counters.put(move, 0);
@@ -106,7 +105,7 @@ public class GameTree {
 						counters.put(move, counters.get(move) + 2 * score.get(type) - others);
 
 						/*
-						 * Reinitialize the board for the next experiment.
+						 * Reinitialise the board for the next experiment.
 						 */
 						board = new Board(state);
 					}

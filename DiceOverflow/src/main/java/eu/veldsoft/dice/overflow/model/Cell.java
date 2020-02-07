@@ -7,7 +7,6 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 public class Cell implements Serializable {
-	// TODO Use it for the cell size.
 	/**
 	 * Size of the die on a particular cell.
 	 * 
