@@ -34,4 +34,5 @@ dependencies {
     api 'org.encog:encog-core:3.3.0'
     api 'com.scalified:tree:0.2.5'
     api "gradle.plugin.com.vanniktech:gradle-android-javadoc-plugin:0.3.0"
+    implementation 'androidx.preference:preference:1.1.0-alpha05'
 }

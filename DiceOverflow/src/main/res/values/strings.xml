@@ -8,11 +8,17 @@
     <string name="title_activity_splash">Dice Overflow</string>
     <string name="title_activity_game">Dice Overflow</string>
     <string name="title_activity_about">About</string>
-    <string name="about_text">﻿Dice Overflow board game was created as master thesis in New Bulgarian University (Sofia, Bulgaria).\n\nCopyright (C) 2016 by Diana Dyulgerova\nAll rights reserved.</string>
+    <string name="about_text">Dice Overflow board game was created as master thesis in New Bulgarian University (Sofia, Bulgaria).\n\nCopyright (C) 2016 by Diana Dyulgerova\nAll rights reserved.</string>
     <string name="help_text">Dice Overflow is a modified version of the game Overflow (http://overflow.sourceforge.net/).\n\nIt is a two players board game for Android compatible mobile devices. It is released under the BSD License, which basically means that it is free, imposing minimal restrictions.\n\nThe name refers to the key principle in the game that each cell on the board can hold a maximum of six units (dice), and if you add another unit to a filled up cell, the units will be distributed to the four neighbor cells.\n\nThe goal of the game is to occupy all territory. In order to will all opponent\'s cells should disappear.</string>
     <string name="title_activity_help">Help</string>
     <string name="new_game_menu">New Game</string>
+    <string name="settings_menu">Settings</string>
     <string name="help_menu">Help</string>
     <string name="about_menu">About</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preferences -->
+    <string name="bot_skills_header">Bot Skills Level</string>
+    <string name="level_title">Bot Level</string>
 
 </resources>

@@ -5,6 +5,9 @@
         android:id="@+id/new_game"
         android:title="@string/new_game_menu"/>
     <item
+        android:id="@+id/options"
+        android:title="@string/settings_menu"/>
+    <item
         android:id="@+id/help"
         android:title="@string/help_menu"/>
     <item

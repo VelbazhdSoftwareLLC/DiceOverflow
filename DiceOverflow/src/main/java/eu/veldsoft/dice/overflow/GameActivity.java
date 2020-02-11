@@ -2,10 +2,12 @@ package eu.veldsoft.dice.overflow;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,7 +24,7 @@ import eu.veldsoft.dice.overflow.model.ai.MonteCarloArtificialIntelligence;
  * 
  * @author Todor Balabanov
  */
-public class GameActivity extends Activity {
+public class GameActivity extends Activity implements SharedPreferences.OnSharedPreferenceChangeListener {
 	/**
 	 * 
 	 */
@@ -44,6 +46,11 @@ public class GameActivity extends Activity {
 	private int finishId = -1;
 
 	/**
+	 * Keep track of the bol skills level.
+	 */
+	private ArtificialIntelligence.Level botSkillsLevel = ArtificialIntelligence.Level.EASY;
+
+	/**
 	 * Computer opponent thread.
 	 */
 	private Runnable ai = new Runnable() {
@@ -51,7 +58,7 @@ public class GameActivity extends Activity {
 		 * Computer opponent object.
 		 */
 		private ArtificialIntelligence bot =
-				new MonteCarloArtificialIntelligence(ArtificialIntelligence.Level.EASY);
+				new MonteCarloArtificialIntelligence(botSkillsLevel);
 
 		/**
 		 * {@inheritDoc}
@@ -259,6 +266,11 @@ public class GameActivity extends Activity {
 		finishId = sounds.load(this, R.raw.game_sound_correct, 1);
 
 		/*
+		 * Register for shared preferences change.
+		 */
+		(PreferenceManager.getDefaultSharedPreferences(this)).registerOnSharedPreferenceChangeListener(this);
+
+		/*
 		 * Refer all image controls.
 		 */
 		images[0][0] = (ImageView) findViewById(R.id.cell00);
@@ -333,6 +345,9 @@ public class GameActivity extends Activity {
 			board.reset();
 			updateViews();
 			break;
+		case R.id.options:
+			startActivity(new Intent(GameActivity.this, SettingsActivity.class));
+			break;
 		case R.id.help:
 			startActivity(new Intent(GameActivity.this, HelpActivity.class));
 			break;
@@ -340,6 +355,27 @@ public class GameActivity extends Activity {
 			startActivity(new Intent(GameActivity.this, AboutActivity.class));
 			break;
 		}
+
 		return true;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+		if (key.equals("level")) {
+			switch(sharedPreferences.getString("level","easy")){
+				case "easy":
+					botSkillsLevel = ArtificialIntelligence.Level.EASY;
+					break;
+				case "normal":
+					botSkillsLevel = ArtificialIntelligence.Level.NORMAL;
+					break;
+				case "hard":
+					botSkillsLevel = ArtificialIntelligence.Level.HARD;
+					break;
+			}
+		}
 	}
 }

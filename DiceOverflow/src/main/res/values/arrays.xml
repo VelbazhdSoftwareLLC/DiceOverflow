@@ -1,0 +1,14 @@
+<resources>
+    <!-- Bot Skills Level Preference -->
+    <string-array name="level_entries">
+        <item>Easy</item>
+        <item>Normal</item>
+        <item>Hard</item>
+    </string-array>
+
+    <string-array name="level_values">
+        <item>easy</item>
+        <item>normal</item>
+        <item>hard</item>
+    </string-array>
+</resources>
