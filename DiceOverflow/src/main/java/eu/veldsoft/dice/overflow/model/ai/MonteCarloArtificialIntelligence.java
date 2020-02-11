@@ -27,7 +27,7 @@ public class MonteCarloArtificialIntelligence extends AbstractArtificialIntellig
 	private int time = 0;
 
 	/**
-	 * Constructor with parameters.
+	 * Constructor with time as parameter for calculation period.
 	 * 
 	 * @param time
 	 *            Time for calculations.
@@ -36,6 +36,28 @@ public class MonteCarloArtificialIntelligence extends AbstractArtificialIntellig
 		super();
 
 		this.time = time;
+	}
+
+	/**
+	 * Constructor with opponent level as parameter for calculation.
+	 *
+	 * @param level
+	 *            Time for calculations.
+	 */
+	public MonteCarloArtificialIntelligence(Level level) {
+		super();
+
+		switch(level) {
+			case EASY:
+				this.time = 1000;
+				break;
+			case NORMAL:
+				this.time = 2000;
+				break;
+			case HARD:
+				this.time = 3000;
+				break;
+		}
 	}
 
 	/**

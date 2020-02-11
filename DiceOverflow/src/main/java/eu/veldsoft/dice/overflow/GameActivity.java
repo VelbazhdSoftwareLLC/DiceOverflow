@@ -50,8 +50,8 @@ public class GameActivity extends Activity {
 		/**
 		 * Computer opponent object.
 		 */
-		private ArtificialIntelligence bot = new MonteCarloArtificialIntelligence(1000);
-		// TODO Use shared preferences to select calculations time.
+		private ArtificialIntelligence bot =
+				new MonteCarloArtificialIntelligence(ArtificialIntelligence.Level.EASY);
 
 		/**
 		 * {@inheritDoc}

@@ -10,6 +10,11 @@ import eu.veldsoft.dice.overflow.model.Cell;
  */
 public interface ArtificialIntelligence {
 	/**
+	 * Computer opponent skills level.
+	 */
+	public static enum Level {EASY, NORMAL, HARD};
+
+	/**
 	 * At each game turn each player should do a single move. The move is
 	 * coordinates of a cell on the board.
 	 * 
