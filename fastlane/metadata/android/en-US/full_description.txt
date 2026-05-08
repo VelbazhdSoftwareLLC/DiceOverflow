@@ -1,0 +1,21 @@
+Dice Overflow is a simple board logical game developed as a master thesis in New Bulgarian University.
+
+This strategic dice game challenges your logical thinking and planning skills. Place dice on the board and try to outsmart your opponent by creating the best combinations. The game features:
+
+• Strategic gameplay that requires careful planning
+• Clean and intuitive interface
+• AI opponent with different difficulty levels
+• Settings to customize your gaming experience
+• Help section to learn the rules and strategies
+
+Whether you're a casual player looking for a quick game or someone who enjoys strategic thinking, Dice Overflow offers an engaging experience that will keep you coming back for more.
+
+The game was originally developed as an academic project to explore artificial intelligence and game theory concepts, making it both entertaining and educational.
+
+Perfect for:
+• Strategic thinking enthusiasts
+• Board game lovers
+• Players who enjoy logical puzzles
+• Anyone looking for a challenging yet relaxing game
+
+Download Dice Overflow today and test your strategic skills!

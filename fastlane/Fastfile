@@ -1,0 +1,85 @@
+#!/usr/bin/env ruby
+
+# This file contains all the available lanes for the DiceOverflow Android project
+# Learn more: https://docs.fastlane.tools/available-lanes/
+
+fastlane_version "2.220.0"
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Build a debug APK"
+  lane :build_debug do
+    gradle(
+      task: "assemble",
+      build_type: "debug"
+    )
+  end
+
+  desc "Build a release APK"
+  lane :build_release do
+    gradle(
+      task: "assemble",
+      build_type: "release"
+    )
+  end
+
+  desc "Deploy a new version to the Google Play Store"
+  lane :deploy do
+    gradle(
+      task: "assemble",
+      build_type: "release"
+    )
+    
+    upload_to_play_store(
+      track: "internal",
+      release_notes: "New version of DiceOverflow"
+    )
+  end
+
+  desc "Run lint checks"
+  lane :lint do
+    gradle(task: "lint")
+  end
+
+  desc "Clean the project"
+  lane :clean do
+    gradle(task: "clean")
+  end
+
+  desc "Run unit tests and build debug APK"
+  lane :ci do
+    clean
+    lint
+    test
+    build_debug
+  end
+
+  desc "Bump version number"
+  lane :bump_version do
+    increment_version_code(
+      gradle_file_path: "DiceOverflow/build.gradle"
+    )
+  end
+
+  desc "Take screenshots"
+  lane :screenshots do
+    gradle(task: "assembleDebug")
+    capture_android_screenshots
+  end
+
+  desc "Run code coverage"
+  lane :coverage do
+    gradle(task: "jacocoTestReport")
+  end
+
+  # Error handling
+  error do |lane, exception|
+    UI.error("Lane #{lane} failed with exception: #{exception}")
+  end
+end

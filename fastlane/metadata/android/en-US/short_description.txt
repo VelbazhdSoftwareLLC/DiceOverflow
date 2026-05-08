@@ -1,0 +1,1 @@
+A strategic board logical dice game. Test your strategic thinking and outsmart your opponent!

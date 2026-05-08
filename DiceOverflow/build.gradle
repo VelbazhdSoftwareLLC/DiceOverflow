@@ -1,38 +1,38 @@
 apply plugin: 'com.android.application'
-apply plugin: 'jacoco-android'
+apply plugin: 'com.mxalbert.gradle.jacoco-android'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    namespace "eu.veldsoft.dice.overflow"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "eu.veldsoft.dice.overflow"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion 25
+        targetSdkVersion 33
         compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_7
-            targetCompatibility JavaVersion.VERSION_1_7
+            sourceCompatibility JavaVersion.VERSION_11
+            targetCompatibility JavaVersion.VERSION_11
         }
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.txt'
         }
         debug {
-            testCoverageEnabled true
+            enableUnitTestCoverage true
+            enableAndroidTestCoverage true
         }
     }
-
-    lintOptions {
+    lint {
         abortOnError false
     }
+
 }
 
 dependencies {
     api 'org.encog:encog-core:3.3.0'
     api 'com.scalified:tree:0.2.5'
-    api "gradle.plugin.com.vanniktech:gradle-android-javadoc-plugin:0.3.0"
     implementation 'androidx.preference:preference:1.1.0-alpha05'
 }

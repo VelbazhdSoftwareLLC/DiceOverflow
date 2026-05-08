@@ -340,20 +340,17 @@ public class GameActivity extends Activity implements SharedPreferences.OnShared
 	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.new_game:
+		int id = item.getItemId();
+
+		if (id == R.id.new_game) {
 			board.reset();
 			updateViews();
-			break;
-		case R.id.options:
+		} else if (id == R.id.options) {
 			startActivity(new Intent(GameActivity.this, SettingsActivity.class));
-			break;
-		case R.id.help:
+		} else if (id == R.id.help) {
 			startActivity(new Intent(GameActivity.this, HelpActivity.class));
-			break;
-		case R.id.about:
+		} else if (id == R.id.about) {
 			startActivity(new Intent(GameActivity.this, AboutActivity.class));
-			break;
 		}
 
 		return true;

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.commons:commons-math3:3.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.apache.commons" artifactId="commons-math3" version="3.0" baseVersion="3.0" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.0/5f8d1d720333aa9a7dee1c949ea70d9ed7da6106/commons-math3-3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.0/5ac1a06d5460602df1aaa93c54707a1bcc4dca26/commons-math3-3.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.0/f0d655bc180703d1553dee71bc97599f724a276e/commons-math3-3.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

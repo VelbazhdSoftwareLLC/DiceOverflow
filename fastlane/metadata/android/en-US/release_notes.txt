@@ -1,0 +1,13 @@
+Initial release of Dice Overflow - a strategic board logical dice game.
+
+Features:
+• Strategic dice-based gameplay
+• AI opponent with intelligent moves
+• Clean and intuitive user interface
+• Settings for customization
+• Help section with game rules
+• Sound effects and visual feedback
+
+This game was developed as a master thesis project at New Bulgarian University, exploring artificial intelligence and game theory concepts in a practical gaming application.
+
+Thank you for downloading Dice Overflow!
